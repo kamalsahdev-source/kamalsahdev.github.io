@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamal Sahdev — Data, Analytics & AI Leader</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:  #111111;
+  --white:  #F7F4EF;
+  --red:    #E8332A;
+  --gray:   #888888;
+  --lgray:  #DDDDDD;
+  --text:   #222222;
+  --text2:  #555555;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* ── NAV ─────────────────────── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: var(--black);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 3rem; height: 52px;
+}
+.nav-logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .75rem; font-weight: 900; letter-spacing: .18em;
+  text-transform: uppercase; color: white; text-decoration: none;
+}
+.nav-logo span { color: var(--red); }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-family: Arial, sans-serif; font-size: .65rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); text-decoration: none; transition: color .2s;
+}
+.nav-links a:hover { color: white; }
+.nav-badge {
+  font-family: Arial, sans-serif; font-size: .6rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  background: var(--red); color: white; padding: .2rem .65rem;
+}
+
+/* ── HERO ────────────────────── */
+#hero {
+  padding: 7rem 3rem 0;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.hero-top {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 2rem;
+  align-items: start;
+  padding-bottom: 2rem;
+}
+.hero-kicker {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem; font-weight: 900; letter-spacing: .1em;
+  text-transform: uppercase;
+  background: var(--red); color: white;
+  display: inline-block; padding: .4rem 1.1rem;
+  margin-bottom: .65rem;
+}
+.hero-pedigree {
+  font-family: Georgia, serif;
+  font-size: .72rem; font-weight: 400;
+  font-style: italic; letter-spacing: .02em;
+  color: var(--gray); margin-bottom: 1rem;
+}
+.hero-name {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 700; line-height: 1.0;
+  letter-spacing: -.02em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.hero-rule { height: 4px; background: var(--red); margin-bottom: 1.2rem; }
+.hero-tagline {
+  font-size: .97rem; color: var(--text2);
+  width: 100%; line-height: 1.85;
+}
+.hero-right {
+  display: flex; flex-direction: column; gap: .5rem;
+  padding-top: 1rem; min-width: 130px;
+}
+.hero-tag {
+  font-family: Arial, sans-serif; font-size: .62rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .28rem .8rem; display: block; text-align: center;
+}
+.hero-tag.black { background: var(--black); color: white; }
+.hero-tag.red   { background: var(--red); color: white; }
+.hero-tag.out   { border: 1px solid var(--lgray); color: var(--gray); }
+
+.hero-bottom {
+  border-top: 2px solid var(--black);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.hero-stat {
+  padding: 1.4rem 1.5rem;
+  border-right: 1px solid var(--lgray);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat-num {
+  font-family: Arial, sans-serif;
+  font-size: 2.2rem; font-weight: 900; color: var(--black);
+  line-height: 1; margin-bottom: .25rem;
+}
+.hero-stat-num span { color: var(--red); }
+.hero-stat-lbl {
+  font-family: Arial, sans-serif; font-size: .6rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--gray);
+}
+
+/* ── RULE SECTION ─────────────── */
+.section-rule {
+  border: none; border-top: 2px solid var(--black); margin: 0;
+}
+
+/* ── SECTION BASE ──────────────── */
+section { padding: 5.5rem 3rem; }
+.inner { max-width: 1140px; margin: 0 auto; }
+
+.sec-kicker {
+  font-family: Arial, sans-serif; font-size: .62rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--red);
+  margin-bottom: 1.8rem; display: flex; align-items: center; gap: .7rem;
+}
+.sec-kicker::after { content: ''; flex:1; max-width:50px; height:2px; background:var(--red); opacity:.4; }
+
+.sec-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900; letter-spacing: -.02em;
+  text-transform: uppercase; line-height: 1; margin-bottom: 1.5rem;
+  color: var(--black);
+}
+
+/* ── ABOUT ──────────────────────── */
+#about { background: var(--white); border-top: 2px solid var(--black); }
+.about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; }
+.about-text p {
+  font-size: .96rem; color: var(--text2); line-height: 1.85;
+  margin-bottom: 1.1rem;
+}
+.about-text p strong { color: var(--black); font-weight: 700; }
+
+.cred-list { list-style: none; margin-top: 1rem; }
+.cred-item {
+  display: grid; grid-template-columns: auto 1fr; gap: .8rem;
+  padding: 1rem 0; border-bottom: 1px solid var(--lgray);
+}
+.cred-item:first-child { border-top: 1px solid var(--lgray); }
+.cred-num {
+  font-family: Arial, sans-serif; font-size: .65rem; font-weight: 700;
+  color: var(--red); letter-spacing: .06em; margin-top: .1rem;
+}
+.cred-title { font-size: .88rem; color: var(--black); font-weight: 700; margin-bottom: .1rem; }
+.cred-sub { font-family: Arial, sans-serif; font-size: .7rem; color: var(--gray); }
+
+/* ── EXPERTISE ────────────────── */
+#expertise { background: var(--black); border-top: 2px solid var(--black); }
+#expertise .sec-kicker { color: var(--red); }
+#expertise .sec-title { color: white; }
+
+.exp-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(255,255,255,0.1); margin-top: 1rem;
+}
+.exp-card {
+  padding: 2rem 1.8rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background .2s;
+}
+.exp-card:hover { background: rgba(255,255,255,0.04); }
+.exp-card:nth-child(3n) { border-right: none; }
+.exp-card:nth-child(n+4) { border-bottom: none; }
+.exp-num {
+  font-family: Arial, sans-serif; font-size: .58rem; font-weight: 700;
+  color: var(--red); letter-spacing: .1em; margin-bottom: .8rem;
+}
+.exp-title {
+  font-family: Arial, sans-serif; font-size: 1rem; font-weight: 700;
+  color: white; margin-bottom: .6rem; line-height: 1.25;
+}
+.exp-body { font-family: Arial, sans-serif; font-size: .8rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: 1rem; }
+.etag {
+  font-family: Arial, sans-serif; font-size: .57rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.12);
+  padding: .15rem .5rem;
+}
+
+/* ── WORK ─────────────────────── */
+#work { background: var(--white); border-top: 2px solid var(--black); }
+.work-featured {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--black); margin-bottom: 1.5rem;
+}
+.work-featured-left { padding: 2.5rem; border-right: 2px solid var(--black); }
+.work-featured-right { padding: 2.5rem; background: var(--black); }
+
+.work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.wcard { border: 1px solid var(--lgray); padding: 2rem; transition: border-color .2s; }
+.wcard:hover { border-color: var(--black); }
+
+.wbadge {
+  font-family: Arial, sans-serif; font-size: .58rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: .22rem .65rem; display: inline-block; margin-bottom: 1rem;
+}
+.wbadge.black { background: var(--black); color: white; }
+.wbadge.red   { background: var(--red); color: white; }
+.wbadge.out   { border: 1px solid var(--lgray); color: var(--gray); }
+.wbadge.white { background: white; color: var(--black); border: 1px solid rgba(255,255,255,0.2); }
+
+.wtitle {
+  font-family: Arial, sans-serif; font-size: 1.25rem; font-weight: 900;
+  color: var(--black); margin-bottom: .6rem; line-height: 1.15;
+  text-transform: uppercase; letter-spacing: -.01em;
+}
+.wtitle.inv { color: white; }
+.wdesc { font-size: .88rem; color: var(--text2); line-height: 1.8; margin-bottom: 1.2rem; }
+.wdesc.inv { color: rgba(255,255,255,0.6); }
+.wstack { display: flex; flex-wrap: wrap; gap: .3rem; }
+.spill {
+  font-family: Arial, sans-serif; font-size: .58rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: .2rem .55rem;
+}
+.spill.dark { color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.15); }
+.spill.light { color: var(--text2); border: 1px solid var(--lgray); }
+
+.wmeta { display: flex; flex-direction: column; gap: 2rem; }
+.wmet { border-left: 3px solid var(--red); padding-left: 1rem; }
+.wmet-num { font-family: Arial, sans-serif; font-size: 2rem; font-weight: 900; color: white; line-height: 1; }
+.wmet-lbl { font-family: Arial, sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: .2rem; }
+
+/* ── TIMELINE ───────────────── */
+#timeline { background: var(--white); border-top: 2px solid var(--black); }
+.tl { margin-top: 1.5rem; position: relative; }
+.tl-item {
+  display: grid; grid-template-columns: 180px 28px 1fr;
+  gap: 0; padding: 1.8rem 0;
+  border-bottom: 1px solid var(--lgray);
+  align-items: start;
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-dates {
+  font-family: Arial, sans-serif; font-size: .63rem; font-weight: 700;
+  letter-spacing: .06em; color: var(--gray); text-align: right;
+  padding-top: .15rem; padding-right: 1.2rem;
+}
+.tl-line {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+}
+.tl-line::before {
+  content: '';
+  position: absolute; top: 0; bottom: -3.6rem;
+  left: 50%; transform: translateX(-50%);
+  width: 1px; background: var(--lgray);
+  z-index: 0;
+}
+.tl-item:last-child .tl-line::before { display: none; }
+.tl-dot {
+  position: relative; z-index: 1;
+  width: 11px; height: 11px;
+  background: white; border: 2px solid var(--black);
+  transform: rotate(45deg);
+  margin-top: .1rem;
+  transition: background .2s, border-color .2s;
+  flex-shrink: 0;
+}
+.tl-item:hover .tl-dot { background: var(--red); border-color: var(--red); }
+.tl-content { padding-left: 1.2rem; }
+.tl-co {
+  font-family: Arial, sans-serif; font-size: 1rem; font-weight: 900;
+  color: var(--black); text-transform: uppercase; letter-spacing: -.01em;
+}
+.tl-role {
+  font-family: Arial, sans-serif; font-size: .72rem; font-weight: 700;
+  color: var(--red); letter-spacing: .04em; margin-bottom: .4rem;
+}
+.tl-desc { font-size: .83rem; color: var(--text2); line-height: 1.75; max-width: 580px; }
+
+/* ── CONTACT ─────────────────── */
+#contact { background: var(--black); border-top: 2px solid var(--black); }
+#contact .sec-kicker { color: var(--red); }
+#contact .sec-title { color: white; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-intro { font-family: Arial, sans-serif; font-size: .9rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 2.5rem; }
+
+.clinks { list-style: none; }
+.clink {
+  display: flex; gap: 1rem; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none; color: rgba(255,255,255,0.6); transition: all .2s;
+}
+.clink:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.clink:hover { color: white; padding-left: .5rem; }
+.clink-icon {
+  width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: border-color .2s;
+}
+.clink:hover .clink-icon { border-color: var(--red); }
+.clink-icon svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+.clink-lbl { font-family: Arial, sans-serif; font-size: .57rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.25); display: block; margin-bottom: .1rem; }
+.clink-val { font-family: Arial, sans-serif; font-size: .85rem; }
+
+.cform { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 2.2rem; }
+.cform h3 { font-family: Arial, sans-serif; font-size: 1rem; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; color: white; margin-bottom: 1.5rem; }
+.field { margin-bottom: 1rem; }
+.field label { font-family: Arial, sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.3); display: block; margin-bottom: .35rem; }
+.field input, .field textarea {
+  width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  color: white; font-family: Arial, sans-serif; font-size: .875rem;
+  padding: .65rem .85rem; outline: none; transition: border-color .2s; resize: vertical;
+}
+.field input:focus, .field textarea:focus { border-color: var(--red); }
+.field textarea { min-height: 90px; }
+.fsub {
+  width: 100%; padding: .8rem; background: var(--red); color: white;
+  border: none; font-family: Arial, sans-serif; font-size: .68rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: background .2s; margin-top: .4rem;
+}
+.fsub:hover { background: #C42820; }
+
+/* ── FOOTER ──────────────────── */
+footer {
+  background: var(--black); padding: 1.5rem 3rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer span { font-family: Arial, sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+footer a { color: var(--red); text-decoration: none; }
+
+/* ── RESPONSIVE ──────────────── */
+@media(max-width:900px){
+  nav { padding: 0 1.5rem; }
+  .nav-links, .nav-badge { display: none; }
+  section { padding: 4rem 1.5rem; }
+  #hero { padding: 7rem 1.5rem 0; }
+  .hero-top { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-bottom { grid-template-columns: repeat(2, 1fr); }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .exp-grid { grid-template-columns: 1fr; }
+  .work-featured { grid-template-columns: 1fr; }
+  .work-featured-left { border-right: none; border-bottom: 2px solid var(--black); }
+  .work-grid { grid-template-columns: 1fr; }
+  .tl-item { grid-template-columns: 1fr; gap: .3rem; }
+  .tl-line { display: none; }
+  .tl-dates { text-align: left; padding-right: 0; }
+  .tl-content { padding-left: 0; }
+  footer { flex-direction: column; gap: .5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">K·<span>Sahdev</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="nav-badge">Open to Work</span>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-top">
+    <div>
+      <div class="hero-kicker">VP · Data, Analytics &amp; Agentic AI · Financial Services</div>
+      <div class="hero-pedigree">Ex–JP Morgan Chase &nbsp;·&nbsp; Ex–Citi &nbsp;·&nbsp; Ex–USAA Bank &nbsp;·&nbsp; Ex–First Data</div>
+      <div class="hero-name">Kamal<br>Sahdev</div>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">25 years designing, building, and scaling enterprise data, technology, and cloud platforms across financial services. I've led digital transformation programs, architected platform modernization at tier-1 institutions, and built marketing and analytics capabilities from the ground up. In recent years I've applied that foundation to AI — including GenAI, RAG, and agentic workflows on Snowflake Cortex at USAA — and am now prototyping agentic AI systems applied to complex financial services problems. I don't just advise — I build.</p>
+    </div>
+    <div class="hero-right">
+      <span class="hero-tag red">Open to Work</span>
+      <span class="hero-tag black">VP · Data & Analytics</span>
+      <span class="hero-tag black">Data & Analytics</span>
+      <span class="hero-tag black">Cloud & Platform</span>
+      <span class="hero-tag black">Agentic AI</span>
+      <span class="hero-tag black">Financial Services</span>
+      <span class="hero-tag out">NJ / NY · Onsite, Hybrid or Remote</span>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-stat">
+      <div class="hero-stat-num">$100<span>MM+</span></div>
+      <div class="hero-stat-lbl">Revenue Impact</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">25<span>+</span></div>
+      <div class="hero-stat-lbl">Years in FS</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">500<span>+</span></div>
+      <div class="hero-stat-lbl">Snowflake Assets Built</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-lbl">Tier-1 Institutions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="sec-kicker">About</div>
+        <h2 class="sec-title">Strategy<br>meets craft.</h2>
+        <p>I'm a senior technology and business leader with 25+ years driving data strategy, digital transformation, and cloud and platform modernization across financial services. My career spans <strong>JP Morgan Chase, Citi, First Data, and USAA</strong> — each chapter defined by building platforms that move business outcomes, not just advising on them.</p>
+        <p>At USAA, I <strong>innovated and built both the Bank Marketing Growth Engine and the Data & Analytics platform</strong> — an integrated system that drove $100MM+ in annualized revenue. I've led Customer 360 initiatives deploying 500+ Snowflake data assets, launched GenAI and RAG-powered conversational analytics in production, and directed Open Banking data strategy at scale.</p>
+        <p>Today I'm applying that enterprise foundation to emerging AI capabilities: <strong>prototyping agentic AI workflows for complex financial services problems</strong>, developing intelligent investment portfolio tools, and advising on the path from legacy financial systems to cloud-native, AI-enabled architectures.</p>
+        <p>The most valuable thing a senior data leader can do right now is understand AI deeply enough to build with it — not just manage teams that do. My conviction: organizations that don't adopt and evolve with AI quickly will be left behind before they realize it — and the leaders who will matter most are those who can bridge the strategic and the technical.</p>
+      </div>
+      <div>
+        <div style="width:80px;height:80px;background:var(--black);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;border:2px solid var(--lgray);">
+          <span style="font-family:Arial,sans-serif;font-size:1.4rem;font-weight:900;color:white;letter-spacing:-.02em;">KS</span>
+        </div>
+        <ul class="cred-list">
+          <li class="cred-item">
+            <div class="cred-num">01</div>
+            <div>
+              <div class="cred-title">M.S., Information Systems and Management</div>
+              <div class="cred-sub">Stevens Institute of Technology</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <div class="cred-num">02</div>
+            <div>
+              <div class="cred-title">Designing & Building AI Products and Services</div>
+              <div class="cred-sub">Massachusetts Institute of Technology (MIT)</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <div class="cred-num">03</div>
+            <div>
+              <div class="cred-title">Payments Boot Camp</div>
+              <div class="cred-sub">Glenbrook Partners</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <div class="cred-num">04</div>
+            <div>
+              <div class="cred-title">SAFe 6 Agile Strategy and Framework</div>
+              <div class="cred-sub">Scaled Agile</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <div class="cred-num">05</div>
+            <div>
+              <div class="cred-title">NJ / NY Area · Open to remote or hybrid</div>
+              <div class="cred-sub">Seeking VP / Director roles · Data, Analytics & AI · Financial Services</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="inner">
+    <div class="sec-kicker">Expertise</div>
+    <h2 class="sec-title">Where I operate.</h2>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-num">01</div>
+        <div class="exp-title">Agentic AI & GenAI in Financial Services</div>
+        <div class="exp-body">Architecting multi-agent systems for financial crime detection, conversational analytics, and autonomous workflows. Hands-on with LLMs, RAG, and production-grade agentic pipelines.</div>
+        <div class="exp-tags"><span class="etag">Agentic AI</span><span class="etag">LLMs</span><span class="etag">RAG</span><span class="etag">Snowflake Cortex</span><span class="etag">Claude API</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">02</div>
+        <div class="exp-title">Data, Analytics & Cloud Platform Engineering</div>
+        <div class="exp-body">Designing and building enterprise data and cloud platforms from the ground up — cloud data warehousing, information architecture, Customer 360, omnichannel analytics, semantic data models, and marketing intelligence capabilities that drive measurable revenue outcomes.</div>
+        <div class="exp-tags"><span class="etag">Snowflake</span><span class="etag">AWS</span><span class="etag">dbt / MFP</span><span class="etag">Semantic Design</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">03</div>
+        <div class="exp-title">Marketing Analytics & Growth Engines</div>
+        <div class="exp-body">End-to-end marketing platform development, audience delivery, KPI architecture, and personalization strategy. Revenue-attributable data products that drive acquisition and retention at scale.</div>
+        <div class="exp-tags"><span class="etag">Marketing Analytics</span><span class="etag">Personalization</span><span class="etag">Pega CDH</span><span class="etag">Adobe Analytics</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">04</div>
+        <div class="exp-title">AML, Fraud & Financial Crime Intelligence</div>
+        <div class="exp-body">Designing FRAML systems that unify fraud and AML detection through multi-agent AI workflows. Deep expertise in financial crime, regulatory compliance, and risk analytics.</div>
+        <div class="exp-tags"><span class="etag">FRAML</span><span class="etag">AML</span><span class="etag">Fraud Detection</span><span class="etag">SAR</span><span class="etag">RegTech</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">05</div>
+        <div class="exp-title">Enterprise Architecture, Cloud &amp; Technology Modernization</div>
+        <div class="exp-body">Designing and delivering enterprise-scale technology transformations across major financial institutions — cloud modernization, platform migration, microservices architecture, and API strategy. Includes post-M&A platform convergence at JPMC and Citi, and 15-platform digital enablement program at Citi.</div>
+        <div class="exp-tags"><span class="etag">Cloud Modernization</span><span class="etag">Microservices</span><span class="etag">SOA</span><span class="etag">API Design</span><span class="etag">M&A Transformation</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">06</div>
+        <div class="exp-title">Technology Leadership & P&L Ownership</div>
+        <div class="exp-body">Leading cross-functional technology and data teams of 90+ globally, managing $20MM P&L, and delivering enterprise-scale digital transformation. Trusted advisor and direct report to CDOs, CIOs, and CTOs across the financial services ecosystem.</div>
+        <div class="exp-tags"><span class="etag">P&L Ownership</span><span class="etag">SAFe Agile</span><span class="etag">Operating Model</span><span class="etag">Innovation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="inner">
+    <div class="sec-kicker">Selected Work</div>
+    <h2 class="sec-title">Built, not just advised.</h2>
+
+    <div class="work-featured">
+      <div class="work-featured-left">
+        <div class="wbadge black">Independent Research Prototype</div>
+        <h3 class="wtitle">FRAML Intelligence Platform</h3>
+        <p class="wdesc">An agentic AI working prototype exploring unified Fraud and AML detection workflows — applying multi-agent orchestration, LLMs, and RAG to financial crime investigation and SAR drafting. Built to develop hands-on expertise in agentic AI architecture applied to regulated financial services environments.</p>
+        <div class="wstack">
+          <span class="spill light">React + TypeScript</span>
+          <span class="spill light">FastAPI</span>
+          <span class="spill light">PostgreSQL</span>
+          <span class="spill light">Redis</span>
+          <span class="spill light">Anthropic Claude</span>
+          <span class="spill light">Docker / AWS ECS</span>
+          <span class="spill light">D3.js</span>
+        </div>
+      </div>
+      <div class="work-featured-right">
+        <div class="wmeta">
+          <div class="wmet">
+            <div class="wmet-num">4</div>
+            <div class="wmet-lbl">Agentic Workflow Agents</div>
+          </div>
+          <div class="wmet">
+            <div class="wmet-num">FRAML</div>
+            <div class="wmet-lbl">Unified Fraud + AML Architecture</div>
+          </div>
+          <div class="wmet">
+            <div class="wmet-num">Prod</div>
+            <div class="wmet-lbl">Path-to-Production Codebase</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-grid">
+      <div class="wcard">
+        <div class="wbadge out">Personal Project · Evolving</div>
+        <h3 class="wtitle" style="font-size:1.05rem">Agentic Investment Portfolio Intelligence</h3>
+        <p class="wdesc">A retail-friendly intelligent financial platform for tracking brokerage holdings, analyzing risk profiles, and simulating portfolio scenarios. Autonomous market surveillance workers run in the background powered by OpenBB and agentic AI logic.</p>
+        <div class="wstack">
+          <span class="spill light">FastAPI</span><span class="spill light">OpenBB</span><span class="spill light">yfinance</span><span class="spill light">SQLite</span><span class="spill light">Agentic AI</span>
+        </div>
+      </div>
+      <div class="wcard">
+        <div class="wbadge out">USAA Bank · 2020–2025</div>
+        <h3 class="wtitle" style="font-size:1.05rem">Bank Marketing Growth Engine & Data Platform</h3>
+        <p class="wdesc">Built the Audience Intelligence, Offer Intelligence, and Data &amp; Analytics platforms within the Bank Marketing Growth Engine ecosystem — deploying 500+ Snowflake data assets and analytics capabilities that drove $100MM+ in annualized revenue through product acquisition, personalization, and omnichannel marketing.</p>
+        <div class="wstack">
+          <span class="spill light">Snowflake</span><span class="spill light">Snowflake Cortex</span><span class="spill light">GenAI / RAG</span><span class="spill light">Tableau</span><span class="spill light">Hex</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="inner">
+    <div class="sec-kicker">Career</div>
+    <h2 class="sec-title">25 years. Four institutions.</h2>
+    <div class="tl">
+
+      <div class="tl-item">
+        <div class="tl-dates">June 2025 — Present</div>
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-co">Independent Advisory</div>
+          <div class="tl-role">Strategic Consultant · Data & AI Transformation</div>
+          <div class="tl-desc">Prototyping agentic AI workflows applied to financial services problems, developing working AI systems to deepen hands-on expertise, and advising on enterprise data modernization and AI strategy.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dates">Nov 2020 — May 2025</div>
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-co">USAA Bank</div>
+          <div class="tl-role">Director · Omnichannel Data and Analytics</div>
+          <div class="tl-desc">Built the Bank Marketing Growth Engine and Data & Analytics platform driving $100MM+ revenue. Led Customer 360 with 500+ Snowflake data assets and analytics capabilities, launched GenAI/RAG and agentic workflows on Snowflake Cortex, directed Open Banking data strategy.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dates">Sep 2017 — Oct 2020</div>
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-co">Self-Employed</div>
+          <div class="tl-role">Entrepreneur & Consultant</div>
+          <div class="tl-desc">Advised a financial RegTech startup on KYC/EDD platform strategy and operational readiness. Founded and built an AWS-based B2B SaaS platform for contract and workflow management.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dates">Sep 2016 — Aug 2017</div>
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-co">First Data</div>
+          <div class="tl-role">VP · Head of Debit Card and ATM Technology</div>
+          <div class="tl-desc">Led $15MM+ technology portfolio supporting ~1,400 financial institutions. Built debit/ATM modernization roadmap delivering $4MM in projected annual savings.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dates">Jan 2013 — Aug 2016</div>
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-co">Citi · Chief Technology Office</div>
+          <div class="tl-role">Director · Global Head of Digital Enterprise Solutions</div>
+          <div class="tl-desc">Oversaw $20MM P&L and 90+ global team. Architected "Amazon-like" enterprise service ecosystem for 23K+ internal products. Scaled social platform to 240K+ workers. Reduced support costs by 60%.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dates">Jul 2006 — Dec 2012</div>
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-co">Citi · Global Wealth Management</div>
+          <div class="tl-role">SVP · Enterprise Architect and IT Delivery Manager</div>
+          <div class="tl-desc">Led global post-M&A migration to Wealth platform: 3K+ advisor rollouts, 7MM+ document migration, 30+ system modernizations — delivering $5MM in annualized savings.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dates">Nov 1999 — Jul 2006</div>
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-co">JP Morgan Chase</div>
+          <div class="tl-role">VP · Lead Architect and Delivery Manager</div>
+          <div class="tl-desc">Led architecture and modernization of Chase Online Gateway serving 150MM+ accounts. Directed post-M&A platform convergence and digital lending solution delivery.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <div class="contact-grid">
+      <div>
+        <div class="sec-kicker">Contact</div>
+        <h2 class="sec-title">Let's talk.</h2>
+        <p class="contact-intro">Open to VP and Director-level opportunities in data, analytics, and AI across financial services. Also available for advisory engagements and speaking on Agentic AI in regulated industries.</p>
+        <ul class="clinks">
+          <li>
+            <a href="/cdn-cgi/l/email-protection#c6ada7aba7aab5a7aea2a3b086bfa7aea9a9e8a5a9ab" class="clink">
+              <div class="clink-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div><span class="clink-lbl">Email</span><span class="clink-val"><span class="__cf_email__" data-cfemail="e289838f838e91838a868794a29b838a8d8dcc818d8f">[email&#160;protected]</span></span></div>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/kamal-sahdev" target="_blank" class="clink">
+              <div class="clink-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+              <div><span class="clink-lbl">LinkedIn</span><span class="clink-val">linkedin.com/in/kamal-sahdev</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="clink">
+              <div class="clink-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div><span class="clink-lbl">Location</span><span class="clink-val">NJ / NY Area · Onsite, Hybrid or Remote</span></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="cform">
+        <h3>Reach out directly</h3>
+        <p style="font-family:Arial,sans-serif;font-size:.85rem;color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:1.8rem;">
+          The best way to connect is directly. I'm responsive and happy to discuss opportunities, advisory engagements, or a conversation about data and AI in financial services.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <a href="/cdn-cgi/l/email-protection#3159545d5d5e1f5a42505955544771565c50585d1f525e5c" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;color:rgba(255,255,255,0.7);font-family:Arial,sans-serif;font-size:.88rem;transition:color .2s;">
+            <div style="width:36px;height:36px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span style="font-family:Arial,sans-serif;font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:.1rem;">Email</span>
+              <span class="__cf_email__" data-cfemail="026a676e6e6d2c6971636a66677442656f636b6e2c616d6f">[email&#160;protected]</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/kamal-sahdev" target="_blank" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;color:rgba(255,255,255,0.7);font-family:Arial,sans-serif;font-size:.88rem;transition:color .2s;">
+            <div style="width:36px;height:36px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <span style="font-family:Arial,sans-serif;font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:.1rem;">LinkedIn</span>
+              linkedin.com/in/kamal-sahdev
+            </div>
+          </a>
+          <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);font-family:Arial,sans-serif;font-size:.88rem;">
+            <div style="width:36px;height:36px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <span style="font-family:Arial,sans-serif;font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:.1rem;">Phone</span>
+              (732) 277-7181
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;color:rgba(255,255,255,0.7);font-family:Arial,sans-serif;font-size:.88rem;">
+            <div style="width:36px;height:36px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span style="font-family:Arial,sans-serif;font-size:.57rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);display:block;margin-bottom:.1rem;">Location</span>
+              NJ / NY Area · Onsite, Hybrid or Remote
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Kamal Sahdev</span>
+  <span>Data · Analytics · Agentic AI · Financial Services</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cd
